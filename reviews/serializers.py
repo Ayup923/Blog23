@@ -10,4 +10,5 @@ class CommentSerializer(ModelSerializer):
         rep = super().to_representation(instance)
         rep['author'] = instance.author.username
         del rep['post']
+        rep['likes'] = instance.likes.count()
         return rep
